@@ -15,13 +15,21 @@ public class ShootableObject : MonoBehaviour
     public void Shrink()
     {
         Transform temp = gameObject.transform;
-        gameObject.transform.localScale = new Vector3(temp.localScale.x / 2f, temp.localScale.y / 2, temp.localScale.z / 2);
+        if (temp.localScale.x > temp.localScale.x*0.2f && temp.localScale.y > temp.localScale.y * 0.2f && temp.localScale.z > temp.localScale.z * 0.2f)
+        {
+            gameObject.transform.localScale = new Vector3(temp.localScale.x / 2f, temp.localScale.y / 2, temp.localScale.z / 2);
+        }
+
 
     }
     public void Enlarge()
     {
         Transform temp = gameObject.transform;
-        gameObject.transform.localScale = new Vector3(temp.localScale.x * 2f, temp.localScale.y * 2f, temp.localScale.z * 2f);
+        if (temp.localScale.x < temp.localScale.x * 4 && temp.localScale.y < temp.localScale.y * 4 && temp.localScale.z < temp.localScale.z * 4)
+        {
+            gameObject.transform.localScale = new Vector3(temp.localScale.x * 2f, temp.localScale.y * 2f, temp.localScale.z * 2f);
+        }
+
 
     }
     public void Pixalator()
